@@ -1,6 +1,10 @@
 #include "simple_shell.h"
+void display_pro();
 
-
+/**
+ * display_pro - Prints a new prompt 
+ * @display: signal.
+ */
 
 void display_pro()
 {
