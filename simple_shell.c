@@ -3,7 +3,6 @@ void display_pro();
 
 /**
  * display_pro - Prints a new prompt 
- * @display: signal.
  */
 
 void display_pro()
@@ -12,36 +11,39 @@ void display_pro()
 	write(STDOUT_FILENO, pro, sizeof(pro) - 1);
 }
 
-int main() 
+/**
+ * main - Prints a Simple shell
+ * Return: Always 0
+ */
+
+int main()
 {
-	while (1) 
+	char *k = NULL;
+	ssize_t i;
+	size_t l;
+	int len;
+	while (1)
 	{
 		display_pro();
-		char *command = NULL;
-		size_t l = 0;
-		
-		ssize_t i = getline(&command, &l, stdin);
-		
+		i = getline(&k, &l, stdin);
+		l = 0;
 		if (i == -1)
 		{
 			char newline = '\n';
 			write(STDOUT_FILENO, &newline, 1);
-			free(command);
+			free(k);
 			break;
 		}
-
-		int len = strlen(command);
+		len = strlen(k);
 		if (command[len-1] == '\n')
 		{
 			command[len-1] = '\0';
 		}
-		
-		if (system(command) == -1)
+		if (system(k) == -1)
 		{
 			perror("Error: Command not found");
 		}
-		
-		free(command);
+		free(k);
 	}
 	return 0;
 }
