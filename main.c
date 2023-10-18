@@ -17,18 +17,8 @@ int main(void)
 		{
 			break;
 		}
-
-		// Check if readCommand() failed
-		if (command == NULL)
-		{
-			// Free the memory allocated to the command variable
-			free(command);
-			continue;
-		}
-
 		executeCommand(command);
 		free(command);
 	}
 	return (0);
 }
-
