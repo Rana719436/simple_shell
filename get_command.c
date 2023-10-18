@@ -20,12 +20,12 @@ char *readCommand(void)
 		}
 
 		return (NULL);
-		
+
 	}
 	if (bytes_read > 0 && command[bytes_read - 1] == '\n')
 	{
 		command[bytes_read - 1] = '\0';
 	}
 	return (command);
-	free (command);
+	free(command);
 }
