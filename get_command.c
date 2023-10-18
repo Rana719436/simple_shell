@@ -19,12 +19,13 @@ char *readCommand(void)
 			write(STDOUT_FILENO, "\n", 1);
 		}
 
-		free(command);
 		return (NULL);
+		
 	}
 	if (bytes_read > 0 && command[bytes_read - 1] == '\n')
 	{
 		command[bytes_read - 1] = '\0';
 	}
 	return (command);
+	free (command);
 }
