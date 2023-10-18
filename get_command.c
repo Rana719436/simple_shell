@@ -27,5 +27,5 @@ char *readCommand(void)
 		command[bytes_read - 1] = '\0';
 	}
 	return (command);
-	free(command);
+
 }
