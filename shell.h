@@ -15,6 +15,7 @@ void printPrompt(void);
 char *readCommand(void);
 void executeCommand(char *command, char *args[]);
 void parseArguments(char *input, char *args[], int *arg_count);
-
+char *findCommandPath(const char *command);
+void handleExit(void);
 
 #endif

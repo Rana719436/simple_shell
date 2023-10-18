@@ -15,6 +15,12 @@ int main(void)
 	{
 		printPrompt();
 		command = readCommand();
+		args[0] = command;
+		args[1] = NULL;
+		if (strcmp(args[0], "exit") == 0)
+		{
+			handleExit();
+		}
 		if (command == NULL)
 		{
 			break;
@@ -22,7 +28,17 @@ int main(void)
 		parseArguments(command, args, &arg_count);
 		if (arg_count > 0)
 		{
-		executeCommand(args[0], args);
+			char *command_path = findCommandPath(args[0]);
+
+			if (command_path != NULL)
+			{
+				executeCommand(command_path, args);
+				free(command_path);
+			}
+			else
+			{
+				executeCommand(args[0], args);
+			}
 		}
 		free(command);
 	}
