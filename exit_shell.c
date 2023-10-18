@@ -9,8 +9,3 @@ void exit_shell(int __attribute__((unused)) argc, char **argv __attribute__((unu
 	}
 	exit(0);
 }
-int main(void)
-{
-	exit_shell(0, NULL);
-	return 0;
-}
