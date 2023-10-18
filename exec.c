@@ -6,7 +6,7 @@
  * Return:0 on success, -1 on failure.
  */
 
-void executeCommand(char *command)
+void executeCommand(char *k)
 {
 	pid_t child_pid = fork();
 
@@ -18,10 +18,10 @@ void executeCommand(char *command)
 	{
 		char *args[] = {NULL, NULL};
 
-		args[0] = strdup(command);
+		args[0] = strdup(k);
 		execve(args[0], args, NULL);
 		perror("./shell");
-		free(command);
+		free(k);
 		exit(1);
 	}
 	else
