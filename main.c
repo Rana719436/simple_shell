@@ -7,18 +7,18 @@
 
 int main(void)
 {
-	char *command;
+	char *k;
 
 	while (1)
 	{
 		printPrompt();
-		command = readCommand();
-		if (command == NULL)
+		k = readCommand();
+		if (k == NULL)
 		{
 			break;
 		}
-		executeCommand(command);
-		free(command);
+		executeCommand(k);
+		free(k);
 	}
 	return (0);
 }

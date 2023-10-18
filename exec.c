@@ -21,7 +21,7 @@ void executeCommand(char *command)
 		args[0] = strdup(command);
 		execve(args[0], args, NULL);
 		perror("./shell");
-
+		free(command);
 		exit(1);
 	}
 	else
