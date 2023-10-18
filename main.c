@@ -22,17 +22,7 @@ int main(void)
 		parseArguments(command, args, &arg_count);
 		if (arg_count > 0)
 		{
-			char *command_path = findCommandPath(args[0]);
-
-			if (command_path != NULL)
-			{
-				executeCommand(command_path, args);
-				free(command_path);
-			}
-			else
-			{
-				executeCommand(args[0], args);
-			}
+			executeCommand(args[0], args);
 		}
 		free(command);
 	}
