@@ -19,6 +19,7 @@ char *readCommand(void)
 			write(STDOUT_FILENO, "\n", 1);
 		}
 
+		free(command);
 		return (NULL);
 
 	}
