@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	exit_shell(0, NULL);
+	exit_shell(0);
 	char *k;
 
 	while (1)
