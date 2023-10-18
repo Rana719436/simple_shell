@@ -8,9 +8,13 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+#define MAX_INPUT_SIZE 1024
+#define MAX_ARG_COUNT 32
+
 void printPrompt();
 char* readCommand();
-void executeCommand(char *command);
+void executeCommand(char *command, char *args[]);
+void parseArguments(char *input, char *args[], int *arg_count);
 
 
 #endif

@@ -7,18 +7,24 @@
 
 int main(void)
 {
-	char *k;
+	char *command;
+	char *args[MAX_ARG_COUNT];
+	int arg_count = 0;
 
 	while (1)
 	{
 		printPrompt();
-		k = readCommand();
-		if (k == NULL)
+		command = readCommand();
+		if (command == NULL)
 		{
 			break;
 		}
-		executeCommand(k);
-		free(k);
+		parseArguments(command, args, &arg_count);
+		if (arg_count > 0)
+		{
+		executeCommand(args[0], args);
+		}
+		free(command);
 	}
 	return (0);
 }

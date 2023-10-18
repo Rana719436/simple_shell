@@ -3,10 +3,11 @@
 /**
  * executeCommand - Executes a shell command.
  * @command: A null-terminated string containing the shell command.
+ * @args: char argumants
  * Return:0 on success, -1 on failure.
  */
 
-void executeCommand(char *command)
+void executeCommand(char *command, char *args[])
 {
 	pid_t child_pid = fork();
 
@@ -16,9 +17,13 @@ void executeCommand(char *command)
 	}
 	else if (child_pid == 0)
 	{
-		char *args[] = {NULL, NULL};
 
-		args[0] = strdup(command);
+		char exec_path[] = "/usr/bin/";
+		char full_path[MAX_INPUT_SIZE];
+
+		strcpy(full_path, exec_path);
+		strcat(full_path, command);
+
 		execve(args[0], args, NULL);
 		perror("./shell");
 		free(command);
