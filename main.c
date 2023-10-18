@@ -15,12 +15,6 @@ int main(void)
 	{
 		printPrompt();
 		command = readCommand();
-		args[0] = command;
-		args[1] = NULL;
-		if (strcmp(args[0], "exit") == 0)
-		{
-			handleExit();
-		}
 		if (command == NULL)
 		{
 			break;
