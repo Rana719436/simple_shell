@@ -17,16 +17,11 @@ void executeCommand(char *command)
 	else if (child_pid == 0)
 	{
 		char *args[] = {NULL, NULL};
-		if (args[0] == NULL)
-		{
-			free(command);
-			return;
-		}
 
 		args[0] = strdup(command);
 		execve(args[0], args, NULL);
 		perror("./shell");
-		free(args[0]);
+		free(command);
 		exit(1);
 	}
 	else
@@ -39,4 +34,3 @@ void executeCommand(char *command)
 		}
 	}
 }
-
