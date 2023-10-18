@@ -1,19 +1,24 @@
 #include "shell.h"
 
-int main() {
-    char *command;
+/**
+ * main - Prints a Simple shell
+ * Return: Always 0
+ */
 
-    while (1) {
-        printPrompt();
-        command = readCommand();
+int main(void)
+{
+	char *command;
 
-        if (command == NULL) {
-            break;
-        }
-
-        executeCommand(command);
-        free(command);
-    }
-
-    return 0;
+	while (1)
+	{
+		printPrompt();
+		command = readCommand();
+		if (command == NULL)
+		{
+			break;
+		}
+		executeCommand(command);
+		free(command);
+	}
+	return (0);
 }

@@ -1,21 +1,36 @@
 #include "shell.h"
 
-void executeCommand(char *command) {
-    pid_t child_pid = fork();
+/**
+ * executeCommand - Executes a shell command.
+ * @command: A null-terminated string containing the shell command.
+ * Return:0 on success, -1 on failure.
+ */
 
-    if (child_pid == -1) {
-        perror("fork");
-    } else if (child_pid == 0) {
-        char *args[] = {NULL, NULL};
-        args[0] = strdup(command);
-        execve(args[0], args, NULL);
+void executeCommand(char *command)
+{
+	pid_t child_pid = fork();
 
-        perror("./shell");
-        exit(1);
-    } else {
-        int status;
-        if (wait(&status) == -1) {
-            perror("wait");
-        }
-    }
+	if (child_pid == -1)
+	{
+		perror("fork");
+	}
+	else if (child_pid == 0)
+	{
+		char *args[] = {NULL, NULL};
+
+		args[0] = strdup(command);
+		execve(args[0], args, NULL);
+		perror("./shell");
+		free(command);
+		exit(1);
+	}
+	else
+	{
+		int status;
+
+		if (wait(&status) == -1)
+		{
+			perror("wait");
+		}
+	}
 }
