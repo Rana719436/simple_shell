@@ -17,7 +17,6 @@ int main(void)
 		{
 			break;
 		}
-<<<<<<< HEAD
 
 		// Check if readCommand() failed
 		if (command == NULL)
@@ -27,8 +26,6 @@ int main(void)
 			continue;
 		}
 
-=======
->>>>>>> e438f4f449be4cc28bb46aaff36aff14cbd2143a
 		executeCommand(command);
 		free(command);
 	}
