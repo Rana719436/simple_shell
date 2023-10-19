@@ -1,3 +1,3 @@
 C - Simple Shell
-asmaa
-rana
+Asmaa
+Rana
